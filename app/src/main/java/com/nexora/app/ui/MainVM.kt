@@ -69,13 +69,13 @@ class MainVM(private val app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun setKill(v: Boolean) {
+    fun updateKill(v: Boolean) {
         kill = v
         prefs.kill = v
         viewModelScope.launch(Dispatchers.IO) { Scheduler.rescheduleAll(app) }
     }
 
-    fun setLang(v: String) { lang = v; prefs.lang = v }
-    fun setTheme(v: String) { theme = v; prefs.theme = v }
+    fun updateLang(v: String) { lang = v; prefs.lang = v }
+    fun updateTheme(v: String) { theme = v; prefs.theme = v }
     fun clearLogs() { viewModelScope.launch(Dispatchers.IO) { db.logs().clear() } }
 }

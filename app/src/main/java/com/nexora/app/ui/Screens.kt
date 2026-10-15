@@ -213,7 +213,7 @@ fun HomeScreen(vm: MainVM, goCreate: () -> Unit) {
                             style = MaterialTheme.typography.bodySmall
                         )
                     }
-                    Button(onClick = { vm.setKill(!vm.kill) }) {
+                    Button(onClick = { vm.updateKill(!vm.kill) }) {
                         Text(if (vm.kill) t("Réactiver", "إعادة التفعيل") else t("Tout arrêter", "إيقاف الكل"))
                     }
                 }
@@ -567,16 +567,16 @@ fun SettingsScreen(vm: MainVM) {
 
         Section(t("Langue", "اللغة")) {
             FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                FilterChip(selected = vm.lang == "fr", onClick = { vm.setLang("fr") }, label = { Text("Français") })
-                FilterChip(selected = vm.lang == "ar", onClick = { vm.setLang("ar") }, label = { Text("العربية") })
+                FilterChip(selected = vm.lang == "fr", onClick = { vm.updateLang("fr") }, label = { Text("Français") })
+                FilterChip(selected = vm.lang == "ar", onClick = { vm.updateLang("ar") }, label = { Text("العربية") })
             }
         }
 
         Section(t("Thème", "المظهر")) {
             FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                FilterChip(selected = vm.theme == "system", onClick = { vm.setTheme("system") }, label = { Text(t("Système", "النظام")) })
-                FilterChip(selected = vm.theme == "light", onClick = { vm.setTheme("light") }, label = { Text(t("Clair", "فاتح")) })
-                FilterChip(selected = vm.theme == "dark", onClick = { vm.setTheme("dark") }, label = { Text(t("Sombre", "داكن")) })
+                FilterChip(selected = vm.theme == "system", onClick = { vm.updateTheme("system") }, label = { Text(t("Système", "النظام")) })
+                FilterChip(selected = vm.theme == "light", onClick = { vm.updateTheme("light") }, label = { Text(t("Clair", "فاتح")) })
+                FilterChip(selected = vm.theme == "dark", onClick = { vm.updateTheme("dark") }, label = { Text(t("Sombre", "داكن")) })
             }
         }
 
